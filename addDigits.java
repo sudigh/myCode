@@ -1,11 +1,9 @@
 public class Solution {
     public int addDigits(int num) {
-        if (num == 0) {
-            return num;
-        }
-        while(num/10 != 0) {
-            num = num%10 + num/10;
-        }
-        return num%10;
+        // Using congruence formula for digital root of a number
+        // D(n) = n%9 if n%9 != 0
+        //      = 9 if n%9 == 0
+        //      = 0 if n == 0
+        return 1+((num-1)%9);
     }
 }
