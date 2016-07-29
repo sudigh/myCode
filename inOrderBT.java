@@ -28,17 +28,15 @@ public class Solution {
         if (root == null) {
             return tree;
         }
-        while (root != null) {
-            stk.push(root);
-            root = root.left;
-            while (root == null) {
-                if (stk.empty()) {
-                    return tree;
-                }
-                root = stk.pop();
-                tree.add(root.val);
-                root = root.right;
+        TreeNode curr = root;
+        while (curr != null || !stk.empty()) {
+            while (curr != null) {
+                stk.push(curr);
+                curr = curr.left;
             }
+            curr = stk.pop();
+            tree.add(curr.val);
+            curr = curr.right;
         }
         return tree;
     }
