@@ -45,6 +45,9 @@ class Solution{
                   default :
                       break;
               }
+              if (fail) {
+                 break;
+              }
           }
           System.out.println(!fail & (stk.size() == 0));
       }
